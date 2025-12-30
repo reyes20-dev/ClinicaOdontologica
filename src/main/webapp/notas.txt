@@ -37,6 +37,10 @@ es para la configuración del servidor web.
 
 
 
+Para cuando vaya a hacer un commmit debo de dale click derecho sobre el proyeto y buscar team y luego add to index y ya quedara listo para realizar el commit.
+
+
+
 
 
 
