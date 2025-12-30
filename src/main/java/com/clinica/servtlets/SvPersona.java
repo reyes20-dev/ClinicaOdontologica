@@ -42,34 +42,25 @@ public class SvPersona extends HttpServlet {
      * Se activa cuando el usuario pulsa el botón "Enviar" en un formulario con method="POST".
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        // request.getParameter extrae el texto que el usuario escribió en el formulario.
-        // El nombre dentro de las comillas ("dni", "nombre") debe ser IDÉNTICO al "name" del input en el JSP.
+        // Captura de datos
         String dni = request.getParameter("dni");
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
         String direccion = request.getParameter("direccion");
         
-        // Creamos un objeto 'per' (el molde vacío) y le metemos los datos que acabamos de capturar.
         Persona per = new Persona();
         per.setDni(dni);
         per.setNombre(nombre);
         per.setApellido(apellido);
         per.setTelefono(telefono);
         per.setDireccion(direccion);
-        
-        // Asignamos la fecha actual del sistema para esta prueba inicial
         per.setFecha_nac(new java.util.Date()); 
 
-        // Creamos una instancia de la Controladora que sabe hablar con PostgreSQL.
-        ControladoraPersistencia controlPersis = new ControladoraPersistencia();
-        
-        // Le pasamos el objeto 'per' lleno de datos al método que estudiamos antes.
-        controlPersis.crearPersona(per);
+        // Ahora llamamos a la Controladora de Lógica, no a la de Persistencia directamente
+        com.clinica.logica.Controladora control = new com.clinica.logica.Controladora();
+        control.crearPersona(per);
 
-        // Una vez guardado, no queremos dejar al usuario en una pantalla blanca.
-        // Lo mandamos de vuelta a la página principal (index.jsp).
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("index.jsp"); //
     }
 }
