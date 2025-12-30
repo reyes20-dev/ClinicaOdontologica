@@ -1,0 +1,42 @@
+Se realizo la conversion del proyecto "Web dynamic project" a un proyecto de maven 
+lo cual facilitara la gestion de las librerias (archivos.jar) y demas cosas.
+
+- Click derecho sobre el proyecto deleccionar *CONFIGURE* y luego *CONVERT TO MAVEN PROJECT*
+
+El POM.XML *PROJECT OBJECT MODEL*
+Este es el cerebro de un proyecto maven. Es un archivo de configiracion en formato XML
+que le dice a java:
+
+Quies en el proyecto: Define el nombre (artifacId), el grupo (groupId) y la version.
+
+Como se construye: Indica que version de java usar (En mi caso, la 21) y como empaquetar
+el resultado  (un archivo  .WAR para subir a Tomcat),
+
+Dependencias: (estas me faltan por colocar aun) pero es basicamente una tienda la cual nos 
+permite traer/comprar los paquetes necesarios sin tener que manualmente instalarlos y cargarlos
+, Escribimos el nombre de la libreria y maven la descarga automaticamente desde internet.
+
+IMPORTANTE!   -   Despues de añadir una dependencia o algo, irnos al proyecto maven y actualizarlo.
+
+
+carpeta RESOURCES, esta sirve para que cuando se compile el proyecto, Maven tome todo lo que hay
+dentro y lo empaquete junto con las clases. Dentro añadimos los siguientes archivos:
+
+config.properties: Sirve para la externalización; guarda datos como la URL y clave de la
+base de datos para cambiarlos sin tocar el código Java.
+ 
+logback.xml: Sirve para el logging; controla cómo se ven los mensajes de error e información
+en la consola de Eclipse.(aun pendiente de cambiar los sysouts)
+
+META-INF/persistence.xml: Es el archivo maestro de JPA; le dice al proyecto cómo conectarse a
+PostgreSQL y qué tablas debe crear o usar.
+ 
+IMPORTANTE: No confundir la carpeta META-INF de resources con la que está en webapp. 
+La de resources es estrictamente para la persistencia de datos (JPA), mientras que la de webapp
+es para la configuración del servidor web.
+
+
+
+
+
+
