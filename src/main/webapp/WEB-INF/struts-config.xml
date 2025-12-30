@@ -15,7 +15,7 @@
                 name="PersonaForm"
                 scope="request"
                 validate="false">
-            <forward name="exito" path="pagina.index"/>
+            <forward name="exito" path="/index.jsp" redirect="true"/>
         </action>
     </action-mappings>
 

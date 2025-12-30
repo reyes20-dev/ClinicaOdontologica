@@ -8,6 +8,7 @@ public class PersonaForm extends ActionForm {
     private String apellido;
     private String telefono;
     private String direccion;
+    private String fecha_nac;
 
     // Getters y Setters
     public String getDni() { return dni; }
@@ -24,4 +25,7 @@ public class PersonaForm extends ActionForm {
 
     public String getDireccion() { return direccion; }
     public void setDireccion(String direccion) { this.direccion = direccion; }
+    
+    public String getFecha_nac() { return fecha_nac; }
+    public void setFecha_nac(String fecha_nac) { this.fecha_nac = fecha_nac; }
 }
