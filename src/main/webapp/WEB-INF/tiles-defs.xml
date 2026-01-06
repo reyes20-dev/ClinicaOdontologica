@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
 
+
 <tiles-definitions>
    <definition name="layoutBase" path="/layouts/layout.jsp">
     <put name="titulo" value="Clínica Odontológica"/>
     <put name="header" value="/layouts/header.jsp"/> 
     <put name="cuerpo" value=""/>
     <put name="footer" value="/layouts/footer.jsp"/> 
-    </definition>
+   </definition>
+
+   <definition name="pagina.inicio" extends="layoutBase">
+    <put name="titulo" value="Registro de Pacientes - Clínica"/>
+    <put name="cuerpo" value="/index.jsp"/> </definition>
 </tiles-definitions>

@@ -10,14 +10,16 @@
     </form-beans>
 
     <action-mappings>
-        <action path="/guardarPersona" 
-                type="com.clinica.acciones.PersonaAction"
-                name="PersonaForm"
-                scope="request"
-                validate="false">
-            <forward name="exito" path="/index.jsp" redirect="true"/>
-        </action>
-    </action-mappings>
+    	<action path="/inicio" type="org.apache.struts.actions.ForwardAction" parameter="pagina.inicio" />
+    		<action 
+    			path="/guardarPersona" 
+            	type="com.clinica.acciones.PersonaAction"
+            	name="PersonaForm"
+            	scope="request"
+            	validate="false">
+        	<forward name="exito" path="pagina.inicio" /> 
+    	</action>
+	</action-mappings>
 
     <plug-in className="org.apache.struts.tiles.TilesPlugin">
     	<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>

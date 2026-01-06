@@ -36,8 +36,10 @@ La de resources es estrictamente para la persistencia de datos (JPA), mientras q
 es para la configuración del servidor web.
 
 
+https://github.com/reyes20-dev/ClinicaOdontologica.git
+1. click en el proyecto y hacer el commit
+2. click, team, remote y push
 
-Para cuando vaya a hacer un commmit debo de dale click derecho sobre el proyeto y buscar team y luego add to index y ya quedara listo para realizar el commit.
 
 
 struts-config.xml: es el cerebro del framework (tiles)
