@@ -1,21 +1,18 @@
 <%@ taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title><tiles:getAsString name="titulo"/></title>
 </head>
-<body>
-    <header>
-        <h1>Mi Clínica Profesional</h1>
-        <hr>
-    </header>
+<body style="margin:0; font-family: sans-serif;">
 
-    <main>
-        <tiles:insert attribute="cuerpo"/>
-    </main>
+    <tiles:insert attribute="header" />
 
-    <footer>
-        <hr>
-        <p>&copy; 2023 Sistema Odontológico</p>
-    </footer>
+    <div class="container" style="padding: 20px;">
+        <tiles:insert attribute="cuerpo" />
+    </div>
+
+    <tiles:insert attribute="footer" />
+
 </body>
 </html>

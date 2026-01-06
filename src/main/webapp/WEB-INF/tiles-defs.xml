@@ -2,12 +2,10 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN" "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
 
 <tiles-definitions>
-    <definition name="layoutBase" path="/layouts/layout.jsp">
-        <put name="titulo" value="Clínica Odontológica"/>
-        <put name="cuerpo" value=""/>
-    </definition>
-
-    <definition name="pagina.index" extends="layoutBase">
-        <put name="cuerpo" value="/index.jsp"/>
+   <definition name="layoutBase" path="/layouts/layout.jsp">
+    <put name="titulo" value="Clínica Odontológica"/>
+    <put name="header" value="/layouts/header.jsp"/> 
+    <put name="cuerpo" value=""/>
+    <put name="footer" value="/layouts/footer.jsp"/> 
     </definition>
 </tiles-definitions>

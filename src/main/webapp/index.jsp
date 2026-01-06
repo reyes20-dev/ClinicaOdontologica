@@ -1,19 +1,36 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- Importamos las librerías de etiquetas de Struts --%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
-<%@taglib uri="http://struts.apache.org/tags-tiles" prefix="tiles" %>
-
-<%-- Este contenido será inyectado en el layoutBase definido en tiles-defs.xml --%>
 <h2>Registrar Nueva Persona</h2>
 
 <html:form action="/guardarPersona" method="POST">
-    DNI: <html:text property="dni" /><br>
-    Nombre: <html:text property="nombre" /><br>
-    Apellido: <html:text property="apellido" /><br>
-    Teléfono: <html:text property="telefono" /><br>
-    Dirección: <html:text property="direccion" /><br>
-    <%-- Nota: En Struts 1 el ActionForm maneja Strings, luego convertimos a Date en la Action --%>
-    Fecha Nac: <html:text property="fecha_nac" /> (yyyy-mm-dd)<br>
-    
-    <html:submit value="Guardar" />
+    <table>
+        <tr>
+            <td>DNI:</td>
+            <td><html:text property="dni" /></td>
+        </tr>
+        <tr>
+            <td>Nombre:</td>
+            <td><html:text property="nombre" /></td>
+        </tr>
+        <tr>
+            <td>Apellido:</td>
+            <td><html:text property="apellido" /></td>
+        </tr>
+         <tr>
+            <td>Telefono:</td>
+            <td><html:text property="telefono" /></td>
+        </tr>
+         <tr>
+            <td>Direccion:</td>
+            <td><html:text property="direccion" /></td>
+        </tr>
+        <tr>
+            <td>Fecha Nac:</td>
+            <td><html:text property="fecha_nac" /></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <html:submit value="Guardar Registro" />
+            </td>
+        </tr>
+    </table>
 </html:form>

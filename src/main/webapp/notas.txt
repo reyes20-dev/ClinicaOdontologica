@@ -40,7 +40,17 @@ es para la configuración del servidor web.
 Para cuando vaya a hacer un commmit debo de dale click derecho sobre el proyeto y buscar team y luego add to index y ya quedara listo para realizar el commit.
 
 
+struts-config.xml: es el cerebro del framework (tiles)
+tiles-defs.xml: para no repetir el codigo definimos un layout (parecido a un hook)
+layout.jsp: Es el esqueleto HTML utiliza algunos tags donde se inyecta el contenido de cada pagina(llamamos CUERPO -> Nombre del index)
+index.jsp: Es el contenido especifico (donde pintamos lo que se mostrara)
 
+lo ideal es que la estructura de la pagina (header, body, footer) no esten en un solo layout
+si no tenerlos en archivos diferentes para que el layout solo sea una estructura de celdas 
+
+tener en cuenta que en el archivo tiles-defs.xml el cuerpo se deja vacío
+en la definición "base" porque es lo único que cambia en cada página.
+El header y footer se definen ahí porque son estáticos para todo el sitio.
 
 
 
