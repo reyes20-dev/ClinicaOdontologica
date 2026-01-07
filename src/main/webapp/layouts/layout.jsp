@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title><tiles:getAsString name="titulo"/></title>
 </head>
 <body>
@@ -12,6 +13,7 @@
         <tiles:insert attribute="cuerpo" /> 
     </div>
 
-    <tiles:insert attribute="footer" /> </body>
-    
+    <tiles:insert attribute="footer" /> 
+
+</body>
 </html>

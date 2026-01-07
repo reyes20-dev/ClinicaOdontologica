@@ -11,6 +11,7 @@
     </definition>
 
     <definition name="pagina.inicio" extends="layoutBase">
-        <put name="titulo" value="Registro de Pacientes"/>
-        <put name="cuerpo" value="/index.jsp"/> </definition>
+    	<put name="titulo" value="Registro de Usuarios" />
+    	<put name="cuerpo" value="/WEB-INF/vistas/insertUsers.jsp" />
+	</definition>
 </tiles-definitions>

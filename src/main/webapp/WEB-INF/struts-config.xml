@@ -14,12 +14,13 @@
     		path="/inicio" 
             type="org.apache.struts.actions.ForwardAction" 
             parameter="pagina.inicio" />
+   
 
     	<action path="/guardarPersona" 
             type="com.clinica.acciones.PersonaAction" 
             name="PersonaForm" 
             scope="request">
-        <forward name="success" path="pagina.inicio" />
+        	<forward name="success" path="pagina.inicio" />
     	</action>
 	</action-mappings>
 	
