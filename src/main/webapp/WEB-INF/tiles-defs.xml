@@ -3,14 +3,14 @@
 
 
 <tiles-definitions>
-   <definition name="layoutBase" path="/layouts/layout.jsp">
-    <put name="titulo" value="Clínica Odontológica"/>
-    <put name="header" value="/layouts/header.jsp"/> 
-    <put name="cuerpo" value=""/>
-    <put name="footer" value="/layouts/footer.jsp"/> 
-   </definition>
+    <definition name="layoutBase" path="/layouts/layout.jsp">
+        <put name="titulo" value="Clínica Odontológica"/>
+        <put name="header" value="/layouts/header.jsp"/>
+        <put name="cuerpo" value=""/> 
+        <put name="footer" value="/layouts/footer.jsp"/> 
+    </definition>
 
-   <definition name="pagina.inicio" extends="layoutBase">
-    <put name="titulo" value="Registro de Pacientes - Clínica"/>
-    <put name="cuerpo" value="/index.jsp"/> </definition>
+    <definition name="pagina.inicio" extends="layoutBase">
+        <put name="titulo" value="Registro de Pacientes"/>
+        <put name="cuerpo" value="/index.jsp"/> </definition>
 </tiles-definitions>

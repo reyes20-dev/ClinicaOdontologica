@@ -4,15 +4,14 @@
 <head>
     <title><tiles:getAsString name="titulo"/></title>
 </head>
-<body style="margin:0; font-family: sans-serif;">
+<body>
 
-    <tiles:insert attribute="header" />
-
-    <div class="container" style="padding: 20px;">
-        <tiles:insert attribute="cuerpo" />
+    <tiles:insert attribute="header" /> 
+    
+    <div class="content">
+        <tiles:insert attribute="cuerpo" /> 
     </div>
 
-    <tiles:insert attribute="footer" />
-
-</body>
+    <tiles:insert attribute="footer" /> </body>
+    
 </html>

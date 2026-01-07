@@ -55,4 +55,8 @@ en la definición "base" porque es lo único que cambia en cada página.
 El header y footer se definen ahí porque son estáticos para todo el sitio.
 
 
+realize cambios de dependencias para resolver conflictos en las vistas estaba usando 1.2 github
+y ahora estoy usando 1.3 local
+
+
 
