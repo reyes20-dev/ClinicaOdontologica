@@ -16,17 +16,17 @@ public class Controladora {
 	    controlPersis.borrarPersonaPorDni(dni);
 	}
 
-	public Persona traerPersona(String dni) {
+	public Persona traerPersonaPorDni(String dni) {
 	    return controlPersis.traerPersonaPorDni(dni);
-	}
-
-	public Persona traerPersona(int id) {
-	    return controlPersis.traerPersona(id);
 	}
 
 	public void editarPersona(Persona per) {
 	    controlPersis.editarPersona(per);
 	}
+	
+	public List<Persona> traerPersonas() {
+        return controlPersis.traerPersonas();
+    }
 	
 }
 

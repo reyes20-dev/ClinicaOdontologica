@@ -61,10 +61,10 @@ public class ControladoraPersistencia {
         }
     }
 
-    public Persona traerPersona(int id) {
+    public List<Persona> traerPersonas() {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.find(Persona.class, id);
+            return em.createQuery("SELECT p FROM Persona p", Persona.class).getResultList();
         } finally {
             em.close();
         }

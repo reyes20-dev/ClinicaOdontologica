@@ -9,26 +9,33 @@
         <form-bean name="PersonaForm" type="com.clinica.forms.PersonaForm"/>
     </form-beans>
 
-	<action-mappings>
-    	<action 
-    		path="/inicio" 
-            type="org.apache.struts.actions.ForwardAction" 
-            parameter="pagina.inicio" />
-   
-
-    	<action path="/guardarPersona" 
-            type="com.clinica.acciones.PersonaAction" 
-            name="PersonaForm" 
-            scope="request">
-        	<forward name="success" path="pagina.inicio" />
-    	</action>
-	</action-mappings>
+    <action-mappings>
+        <action path="/inicio" 
+                type="org.apache.struts.actions.ForwardAction" 
+                parameter="pagina.inicio" />
+   		
+        <action path="/listaPersonas" 
+                type="com.clinica.acciones.PersonaAction" 
+                name="PersonaForm"
+                scope="request">
+            <forward name="verLista" path="pagina.listaPersonas" />
+        </action>
+		
+        <action path="/guardarPersona" 
+                type="com.clinica.acciones.PersonaAction" 
+                name="PersonaForm" 
+                scope="request">
+            <forward name="irAInicio" path="pagina.inicio" />
+            <forward name="verLista" path="pagina.listaPersonas" />
+        </action>
+    </action-mappings>
 	
-	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
 
-	<plug-in className="org.apache.struts.tiles.TilesPlugin">
-	    <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
-	    <set-property property="moduleAware" value="true" />
-	</plug-in>
-	
+    <message-resources parameter="MessageResources" />
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
 </struts-config>

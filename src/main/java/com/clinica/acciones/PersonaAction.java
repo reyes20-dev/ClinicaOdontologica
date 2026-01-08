@@ -24,18 +24,25 @@ public class PersonaAction extends Action {
  
         String action = request.getParameter("action");
         PersonaForm f = (PersonaForm) form;
+             
+        // LÓGICA PARA LISTAR
+        if ("listar".equals(action) || action == null) { 
+            List<Persona> lista = control.traerPersonas();
+            request.setAttribute("listaPersonas", lista); // Esto "infla" la tabla en el JSP
+            return mapping.findForward("irAInicio"); 
+        }
         
 
         // ELIMINAR POR DNI
         if ("eliminar".equals(action)) {
             String dni = request.getParameter("dni");
             control.borrarPersona(dni);
-            return mapping.findForward("exito");
+            return mapping.findForward("verLista");
         } 
 
         // EDITAR / ACTUALIZAR
         if ("editar".equals(action)) {
-            Persona per = control.traerPersona(f.getDni());
+            Persona per = control.traerPersonaPorDni(f.getDni());
             if (per != null) {
                 per.setNombre(f.getNombre());
                 per.setApellido(f.getApellido());
@@ -57,6 +64,6 @@ public class PersonaAction extends Action {
 
         control.crearPersona(per);
        
-        return mapping.findForward("success");
+        return mapping.findForward("irAInicio");
     }
 }
