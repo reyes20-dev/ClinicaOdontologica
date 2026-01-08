@@ -54,6 +54,7 @@ tener en cuenta que en el archivo tiles-defs.xml el cuerpo se deja vacío
 en la definición "base" porque es lo único que cambia en cada página.
 El header y footer se definen ahí porque son estáticos para todo el sitio.
 
+en el pom.xml decirle que excluya una libreria(antlr) que viene en struts para que no haya conflictos
 
 
 
