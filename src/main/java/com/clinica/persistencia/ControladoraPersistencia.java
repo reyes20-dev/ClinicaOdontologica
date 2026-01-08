@@ -36,7 +36,6 @@ public class ControladoraPersistencia {
     public Persona traerPersonaPorDni(String dni) {
         EntityManager em = emf.createEntityManager();
         try {
-            // Buscamos por el atributo DNI usando JPQL
             return em.createQuery("SELECT p FROM Persona p WHERE p.dni = :dni", Persona.class)
                      .setParameter("dni", dni)
                      .getSingleResult();
@@ -47,15 +46,25 @@ public class ControladoraPersistencia {
         }
     }
 
+
     public void borrarPersonaPorDni(String dni) {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
+            
+            // Primero obtenemos la persona usando la consulta por DNI
             Persona per = traerPersonaPorDni(dni);
+            
             if (per != null) {
-                em.remove(em.merge(per)); // merge asegura que el objeto esté gestionado por el EM
+                // Es vital usar merge antes de remove si el objeto viene de otro EntityManager
+                em.remove(em.merge(per));
             }
+            
             em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
         } finally {
             em.close();
         }

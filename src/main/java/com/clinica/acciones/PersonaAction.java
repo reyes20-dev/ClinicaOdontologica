@@ -28,8 +28,8 @@ public class PersonaAction extends Action {
         // LÓGICA PARA LISTAR
         if ("listar".equals(action) || action == null) { 
             List<Persona> lista = control.traerPersonas();
-            request.setAttribute("listaPersonas", lista); // Esto "infla" la tabla en el JSP
-            return mapping.findForward("irAInicio"); 
+            request.setAttribute("listaPersonas", lista); 
+            return mapping.findForward("verLista"); 
         }
         
 
@@ -37,7 +37,7 @@ public class PersonaAction extends Action {
         if ("eliminar".equals(action)) {
             String dni = request.getParameter("dni");
             control.borrarPersona(dni);
-            return mapping.findForward("verLista");
+            return mapping.findForward("irAInicio");
         } 
 
         // EDITAR / ACTUALIZAR
