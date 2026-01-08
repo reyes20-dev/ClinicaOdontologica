@@ -3,6 +3,9 @@ package com.clinica.acciones;
 import com.clinica.forms.PersonaForm;
 import com.clinica.logica.Controladora;
 import com.clinica.logica.Persona;
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -18,22 +21,42 @@ public class PersonaAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
         
-        // Casteamos el formulario para obtener los datos
+ 
+        String action = request.getParameter("action");
         PersonaForm f = (PersonaForm) form;
         
-        // Mapeamos al objeto de lógica
+
+        // ELIMINAR POR DNI
+        if ("eliminar".equals(action)) {
+            String dni = request.getParameter("dni");
+            control.borrarPersona(dni);
+            return mapping.findForward("exito");
+        } 
+
+        // EDITAR / ACTUALIZAR
+        if ("editar".equals(action)) {
+            Persona per = control.traerPersona(f.getDni());
+            if (per != null) {
+                per.setNombre(f.getNombre());
+                per.setApellido(f.getApellido());
+                per.setTelefono(f.getTelefono());
+                per.setDireccion(f.getDireccion());
+                control.editarPersona(per);
+            }
+            return mapping.findForward("exito");
+        }
+
+        // REGISTRO (POR DEFECTO)
         Persona per = new Persona();
         per.setDni(f.getDni());
         per.setNombre(f.getNombre());
         per.setApellido(f.getApellido());
         per.setTelefono(f.getTelefono());
         per.setDireccion(f.getDireccion());
-        per.setFecha_nac(new java.util.Date()); // Fecha actual por defecto
+        per.setFecha_nac(new java.util.Date()); 
 
-        // Guardamos usando la controladora que ya tenías
         control.crearPersona(per);
-        
-        // Indicamos a Struts que todo salió bien (esto se busca en struts-config.xml)
-        return mapping.findForward("exito");
+       
+        return mapping.findForward("success");
     }
 }
